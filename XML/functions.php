@@ -1,5 +1,5 @@
 <?php
-// include("../API/koneksi.php");
+include("../koneksi.php");
 
 class functions {
 
