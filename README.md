@@ -32,7 +32,7 @@ require_once("XML/functions.php");
 
 atau 
 
-/* JSON - Uncomment untuk report dengan format XML */
+/* JSON - Uncomment untuk report dengan format JSON */
 // require_once("JSON/report.php");
 // require_once('JSON/functions.php');
 ```
