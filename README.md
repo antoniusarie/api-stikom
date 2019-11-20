@@ -1,8 +1,8 @@
-# API dengan PHP Native - STIKOM Binaniaga Bogor
+# API dengan PHP Native
 API dengan PHP Native 
 
 ## Informasi
-Bagian dari mata kuliah Dasar Pemrograman Web / `Web Base Programming`.
+Bagian dari Dasar Pemrograman Web / `Web Base Programming`.
 Membuat `API` dengan `PHP Native` dengan output `XML` maupun `JSON`.
 
 ## Tools
