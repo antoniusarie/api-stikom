@@ -1,6 +1,4 @@
 <?php
-include("../koneksi.php");
-
 class functions {
 
     function getNoRef() 
