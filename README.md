@@ -1,4 +1,4 @@
-# API dengan PHP Native
+## API dengan PHP Native
 API dengan PHP Native 
 
 ## Informasi
@@ -23,7 +23,7 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 1. `Clone` Git atau `Extract` file zip.
 2. Query sample database `siswa.sql` ke DMBS. 
 3. Sesuaikan `username`, `password` dan `nama db` pada file `koneksi.php`.
-3. Gunakan `Postman` untuk menammpilkan hasil `API`.
+3. Gunakan `Postman` untuk menampilkan hasil `API`.
 4. Untuk memilih output XML `(default)` atau JSON, pada file `services.php` adalah sbb:
 ```
 /* XML - Uncomment untuk report dengan format XML */
@@ -39,13 +39,13 @@ atau
 5. Fungsi-fungsi pada API disini adalah sbb:
 ```
 // Menampilkan siswa menggunakan fungsi viewsiswa dan nis 7003.
-http://localhost/services.php?fungsi=viewsiswa&nis=7003;
+http://localhost/services.php?fungsi=viewsiswa&nis=7003
 
 // Menambahkan siswa ke DB menggunakan fungsi register dengan value nis, nama dan alamat.
-http://localhost/services.php?fungsi=register&nis=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat];
+http://localhost/services.php?fungsi=register&nis=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat]
 
 // Menampilkan semua siswa menggunakan fungsi semuasiswa (hanya ouput JSON).
-http://localhost/services.php?fungsi=semuasiswa;
+http://localhost/services.php?fungsi=semuasiswa
 ```
 
 ## Penutup
