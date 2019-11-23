@@ -55,17 +55,17 @@ http://localhost/services.php?fungsi=tampilsemua
 ![Preview Index Page - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-DatatablesView.png)
 
 4. Screenshot output (XML & JSON) 
-> XML Tamabah Data
+* XML Tamabah Data
 ![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TambahData.png)
-> XML Tampil Data
+* XML Tampil Data
 ![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilData.png)
-> XML Tampil Semua
+* XML Tampil Semua
 ![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilSemua.png)
-> JSON Tambah
+* JSON Tambah
 ![Fungsi Tambah - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TambahData.png)
-> JSON Tampil
+* JSON Tampil
 ![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TampilData.png)
-> JSON Tampil Semua
+* JSON Tampil Semua
 ![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TampilSemua.png)
 
 ## Penutup
