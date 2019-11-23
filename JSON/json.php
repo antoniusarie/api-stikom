@@ -3,12 +3,12 @@ require_once("functions.php");
 
 class JSON {
     
-    public function semua($iderror, $noref, $keterangan) {
+    public function semua_mahasiswa($iderror, $noref, $keterangan) {
 
-        $func = new functions();
+        $function = new functions();
 
         if($iderror == '000') {
-            $data = $func->getsemuasiswa();
+            $data = $function->get_semua_mahasiswa();
             $json = array(
                 'keterangan' => $keterangan,
                 'kodeid' => $iderror,
@@ -22,16 +22,17 @@ class JSON {
                 'nomorref' => $noref
             );
         }
+        header('Content-Type: application/json');
         $reportJSON = json_encode($json);
         return $reportJSON;
     } 
 
-    public function siswa($nis, $iderror, $noref, $keterangan) {
+    public function mahasiswa($nim, $iderror, $noref, $keterangan) {
 
-        $func = new functions();
+        $function = new functions();
 
         if($iderror == '000') {
-            $data = $func->getdatasiswa($nis);
+            $data = $function->get_data_mahasiswa($nim);
             $json = array(
                 'keterangan' => $keterangan,
                 'kodeid' => $iderror,
@@ -45,10 +46,11 @@ class JSON {
                 'nomorref' => $noref
             );
         }
+        header('Content-Type: application/json');
         $reportJSON = json_encode($json);
         return $reportJSON;
     }
-
+    
     public function noakses($iderror, $noref, $keterangan) {
         
         $items = array($noref, $iderror, $keterangan);
@@ -56,6 +58,7 @@ class JSON {
             'keterangan' => $keterangan,
             'data' => $items
         );
+        header('Content-Type: application/json');
         $reportJSON = json_encode($json);
         return $reportJSON;
     }

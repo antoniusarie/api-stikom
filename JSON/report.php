@@ -4,34 +4,34 @@ require_once("json.php");
 
 class report {
 
-    function reportNoAkses($noref, $iderror, $keterangan)
+    function noAkses($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
         $report = $JSON->noakses($iderror, $noref, $keterangan);
 
         return $report;
     }
-
-    function reportTambahSiswa($nis, $noref, $iderror, $keterangan)
-    {
-        $JSON = new JSON();
-        $report = $JSON->siswa($nis, $iderror, $noref, $keterangan);
-
-        return $report;
-    }
-
-    function reportViewSiswa($nis, $noref, $iderror, $keterangan)
-    {
-        $JSON = new JSON();
-        $report = $JSON->siswa($nis, $iderror, $noref, $keterangan);
-
-        return $report;
-    }
     
-    function reportViewAllSiswa($iderror, $noref, $keterangan)
+    function tambahMahasiswa($nim, $noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->semua($iderror, $noref, $keterangan);
+        $report = $JSON->mahasiswa($nim, $iderror, $noref, $keterangan);
+
+        return $report;
+    }
+
+    function tampilMahasiswa($nim, $noref, $iderror, $keterangan)
+    {
+        $JSON = new JSON();
+        $report = $JSON->mahasiswa($nim, $iderror, $noref, $keterangan);
+
+        return $report;
+    }
+        
+    function tampilSemuaMahasiswa($iderror, $noref, $keterangan)
+    {
+        $JSON = new JSON();
+        $report = $JSON->semua_mahasiswa($iderror, $noref, $keterangan);
 
         return $report;
     }

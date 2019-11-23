@@ -21,32 +21,36 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 
 ## Instalasi
 1. `Clone` Git atau `Extract` file zip.
-2. Query sample database `siswa.sql` ke DMBS. 
+2. Query sample database `mahasiswa.sql` ke DMBS. 
 3. Sesuaikan `username`, `password` dan `nama db` pada file `koneksi.php`.
 3. Gunakan `Postman` untuk menammpilkan hasil `API`.
-4. Untuk memilih output XML `(default)` atau JSON, pada file `services.php` adalah sbb:
+
+## Update (23/11/2019)
+1. Untuk memilih output `XML` atau `JSON`, pada file `services.php` adalah sbb:
+* XML - Uncomment untuk report dengan format XML
 ```
-/* XML - Uncomment untuk report dengan format XML */
 require_once("XML/report.php");
 require_once("XML/functions.php");
+```
 
-atau 
-
-/* JSON - Uncomment untuk report dengan format JSON */
+* JSON - Uncomment untuk report dengan format JSON
+```
 // require_once("JSON/report.php");
 // require_once('JSON/functions.php');
 ```
-5. Fungsi-fungsi pada API disini adalah sbb:
+2. Fungsi-fungsi pada API disini adalah sbb:
 ```
-// Menampilkan siswa menggunakan fungsi viewsiswa dan nis 7003.
-http://localhost/services.php?fungsi=viewsiswa&nis=7003;
+// Menampilkan siswa menggunakan fungsi tampil dan nis 7003.
+http://localhost/services.php?fungsi=tampil&nim=7003;
 
-// Menambahkan siswa ke DB menggunakan fungsi register dengan value nis, nama dan alamat.
-http://localhost/services.php?fungsi=register&nis=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat];
+// Menambahkan siswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
+http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat];
 
-// Menampilkan semua siswa menggunakan fungsi semuasiswa (hanya ouput JSON).
-http://localhost/services.php?fungsi=semuasiswa;
+// Menampilkan semua siswa menggunakan fungsi semua mahassiswa.
+http://localhost/services.php?fungsi=tampilsemua;
 ```
+3. Preview Page `index.php` menampilkan output API (JSON) ke Datatable
+4. Screenshot output (XML & JSON) 
 
 ## Penutup
 Itu saja dulu, lain kali diupdate jika ada tambahan dari `teman-teman`.

@@ -4,7 +4,7 @@ require_once("xml.php");
 
 class report {
 
-    function reportNoAkses($noref, $iderror, $keterangan)
+    function noAkses($noref, $iderror, $keterangan)
     {
         $XML = new XML();
         $report = $XML->noakses($iderror, $noref, $keterangan);
@@ -12,18 +12,26 @@ class report {
         return $report;
     }
 
-    function reportTambahSiswa($nis, $noref, $iderror, $keterangan)
+    function tambahMahasiswa($nim, $noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->siswa($nis, $iderror, $noref, $keterangan);
+        $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
 
         return $report;
     }
 
-    function reportViewSiswa($nis, $noref, $iderror, $keterangan)
+    function tampilMahasiswa($nim, $noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->siswa($nis, $iderror, $noref, $keterangan);
+        $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
+
+        return $report;
+    }
+    
+    function tampilSemuaMahasiswa($noref, $iderror, $keterangan)
+    {
+        $XML = new XML();
+        $report = $XML->semua_mahasiswa($noref, $iderror, $keterangan);
 
         return $report;
     }

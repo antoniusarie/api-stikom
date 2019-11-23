@@ -9,11 +9,11 @@ class functions {
         $noRef = date('Ymdhis').'_'.$random;
         return $noRef;
     }
-
-    function ceksiswa($nis)
+  
+    function cek_mahasiswa($nim)
     {
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT COUNT(*) jumlah FROM siswa WHERE nis = '$nis'";
+        $sql = "SELECT COUNT(*) jumlah FROM mahasiswa WHERE nim = '$nim'";
         $query = mysqli_query($conn, $sql);
         while ($data = mysqli_fetch_array($query)) {
             $rowdata = $data["jumlah"];
@@ -21,40 +21,41 @@ class functions {
         return $rowdata;
     }
 
-    function tambahsiswa($nis, $nama, $alamat)
+    function tambah_mahasiswa($nim, $nama, $alamat)
     {
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "INSERT INTO siswa(nis, nama, alamat) VALUES('$nis', '$nama', '$alamat')";
+        $sql = "INSERT INTO mahasiswa(nim, nama, alamat) VALUES('$nim', '$nama', '$alamat')";
         mysqli_query($conn, $sql);
     }
+    
 
-    function getdatasiswa($nis)
+    function get_data_mahasiswa($nim)
     {
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT nis, nama, alamat FROM siswa WHERE nis = '$nis'";
+        $sql = "SELECT nim, nama, alamat FROM mahasiswa WHERE nim = '$nim'";
         $query = mysqli_query($conn, $sql);
         while ($data = mysqli_fetch_array($query)) {
 
         // While JSON
             $item[] = array(
-                'nis' => $data["nis"],
+                'nim' => $data["nim"],
                 'nama' => $data["nama"],
                 'alamat' => $data["alamat"],
             );
         }
         return $item;
     }
-    
-    function getsemuasiswa()
+        
+    function get_semua_mahasiswa()
     {
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT nis, nama, alamat FROM siswa";
+        $sql = "SELECT nim, nama, alamat FROM mahasiswa";
         $query = mysqli_query($conn, $sql);
         while($data = mysqli_fetch_array($query)) {
             
         // While JSON
             $item[] = array(
-                'nis' => $data["nis"],
+                'nim' => $data["nim"],
                 'nama' => $data["nama"],
                 'alamat' => $data["alamat"],
             );
