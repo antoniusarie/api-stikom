@@ -39,15 +39,15 @@ require_once("JSON/report.php");
 require_once('JSON/functions.php');
 ```
 2. Fungsi-fungsi pada API disini adalah sbb:
-> Menampilkan siswa menggunakan fungsi tampil dan nis 7003.
+> Menampilkan mahasiswa menggunakan fungsi tampil dan nis 7003.
 ```
 http://localhost/services.php?fungsi=tampil&nim=7003
 ```
-> Menambahkan siswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
+> Menambahkan mahasiswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
 ```
 http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat]
 ```
-> Menampilkan semua siswa menggunakan fungsi semua mahasiswa.
+> Menampilkan semua mahasiswa menggunakan fungsi tampilsemua.
 ```
 http://localhost/services.php?fungsi=tampilsemua
 ```
