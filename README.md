@@ -35,18 +35,20 @@ require_once("XML/functions.php");
 
 * JSON - Uncomment untuk report dengan format JSON
 ```
-// require_once("JSON/report.php");
-// require_once('JSON/functions.php');
+require_once("JSON/report.php");
+require_once('JSON/functions.php');
 ```
 2. Fungsi-fungsi pada API disini adalah sbb:
+> Menampilkan siswa menggunakan fungsi tampil dan nis 7003.
 ```
-// Menampilkan siswa menggunakan fungsi tampil dan nis 7003.
 http://localhost/services.php?fungsi=tampil&nim=7003;
-
-// Menambahkan siswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
+```
+> Menambahkan siswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
+```
 http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat];
-
-// Menampilkan semua siswa menggunakan fungsi semua mahassiswa.
+```
+> Menampilkan semua siswa menggunakan fungsi semua mahasiswa.
+```
 http://localhost/services.php?fungsi=tampilsemua;
 ```
 3. Preview Page `index.php` menampilkan output API (JSON) ke Datatable
