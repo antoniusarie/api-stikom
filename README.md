@@ -51,21 +51,22 @@ http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&
 ```
 http://localhost/services.php?fungsi=tampilsemua
 ```
-3. Preview Page `index.php` menampilkan output API (JSON) ke Datatable
+3. Preview Page `index.php` menampilkan output API (JSON) ke Datatable.
+
 ![Preview Index Page - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-DatatablesView.png)
 
 ## Screenshot Output
 1. XML Tambah Data.
 
-![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TambahData.png)
+![Fungsi Tampil Semua - XML](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TambahData.png)
 
 2. XML Tampil Data.
 
-![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilData.png)
+![Fungsi Tampil Semua - XML](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilData.png)
 
 3. XML Tampil Semua.
 
-![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilSemua.png)
+![Fungsi Tampil Semua - XML](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilSemua.png)
 
 4. JSON Tambah Data.
 
