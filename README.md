@@ -27,13 +27,13 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 
 ## Update (23/11/2019)
 1. Untuk memilih output `XML` atau `JSON`, pada file `services.php` adalah sbb:
-* XML - Uncomment untuk report dengan format XML
+> XML - Uncomment untuk report dengan format XML
 ```
 require_once("XML/report.php");
 require_once("XML/functions.php");
 ```
 
-* JSON - Uncomment untuk report dengan format JSON
+> JSON - Uncomment untuk report dengan format JSON
 ```
 require_once("JSON/report.php");
 require_once('JSON/functions.php');
@@ -41,18 +41,32 @@ require_once('JSON/functions.php');
 2. Fungsi-fungsi pada API disini adalah sbb:
 > Menampilkan siswa menggunakan fungsi tampil dan nis 7003.
 ```
-http://localhost/services.php?fungsi=tampil&nim=7003;
+http://localhost/services.php?fungsi=tampil&nim=7003
 ```
 > Menambahkan siswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
 ```
-http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat];
+http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat]
 ```
 > Menampilkan semua siswa menggunakan fungsi semua mahasiswa.
 ```
-http://localhost/services.php?fungsi=tampilsemua;
+http://localhost/services.php?fungsi=tampilsemua
 ```
 3. Preview Page `index.php` menampilkan output API (JSON) ke Datatable
+![Preview Index Page - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-DatatablesView.png)
+
 4. Screenshot output (XML & JSON) 
+> XML Tamabah Data
+![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TambahData.png)
+> XML Tampil Data
+![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilData.png)
+> XML Tampil Semua
+![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/XML-TampilSemua.png)
+> JSON Tambah
+![Fungsi Tambah - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TambahData.png)
+> JSON Tampil
+![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TampilData.png)
+> JSON Tampil Semua
+![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TampilSemua.png)
 
 ## Penutup
 Itu saja dulu, lain kali diupdate jika ada tambahan dari `teman-teman`.
