@@ -23,7 +23,7 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 1. `Clone` Git atau `Extract` file zip.
 2. Query sample database `mahasiswa.sql` ke DMBS. 
 3. Sesuaikan `username`, `password` dan `nama db` pada file `koneksi.php`.
-3. Gunakan `Postman` untuk menammpilkan hasil `API`.
+3. Gunakan `Postman` untuk menampilkan hasil `API`.
 
 ## Update (23/11/2019)
 1. Untuk memilih output `XML` atau `JSON`, pada file `services.php` adalah sbb:
