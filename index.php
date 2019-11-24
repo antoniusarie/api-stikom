@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="en">
 
@@ -12,8 +13,7 @@
 
     <!-- Datatables -->
 	<link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.min.css"/>
-
-	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     
     <script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="assets/js/dataTables.bootstrap.min.js"></script>
@@ -63,7 +63,7 @@
     });
     </script>
 	
-	<title>API</title>
+	<title>API PHP Native</title>
 </head>
 
 <body>

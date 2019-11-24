@@ -9,22 +9,22 @@ class JSON {
 
         if($iderror == '000') {
             $data = $function->get_semua_mahasiswa();
-            $json = array(
+            $infoData = array(
                 'keterangan' => $keterangan,
                 'kodeid' => $iderror,
                 'nomorref' => $noref,
                 'data' => $data
             );
         } else {
-            $json = array(
+            $infoData = array(
                 'keterangan' => $keterangan,
                 'kodeid' => $iderror,
                 'nomorref' => $noref
             );
         }
         header('Content-Type: application/json');
-        $reportJSON = json_encode($json);
-        return $reportJSON;
+        $output = json_encode($infoData);
+        return $output;
     } 
 
     public function mahasiswa($nim, $iderror, $noref, $keterangan) {
@@ -33,34 +33,34 @@ class JSON {
 
         if($iderror == '000') {
             $data = $function->get_data_mahasiswa($nim);
-            $json = array(
+            $infoData = array(
                 'keterangan' => $keterangan,
                 'kodeid' => $iderror,
                 'nomorref' => $noref,
                 'data' => $data
             );
         } else {
-            $json = array(
+            $infoData = array(
                 'keterangan' => $keterangan,
                 'kodeid' => $iderror,
                 'nomorref' => $noref
             );
         }
         header('Content-Type: application/json');
-        $reportJSON = json_encode($json);
-        return $reportJSON;
+        $output = json_encode($infoData);
+        return $output;
     }
     
     public function noakses($iderror, $noref, $keterangan) {
         
         $items = array($noref, $iderror, $keterangan);
-        $json = array(
+        $infoData = array(
             'keterangan' => $keterangan,
             'data' => $items
         );
         header('Content-Type: application/json');
-        $reportJSON = json_encode($json);
-        return $reportJSON;
+        $output = json_encode($infoData);
+        return $output;
     }
     
 }

@@ -28,7 +28,6 @@ class XML {
         // Looping array $data 
         foreach ($data as $items) {
             if(!empty($items)){
-                
                 $child = $parent->appendChild($xml->createElement("item"));
                 foreach ($items as $key => $value) {
                     $child->appendChild($xml->createElement($key, $value));
