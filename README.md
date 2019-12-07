@@ -50,15 +50,15 @@ $method = "GET"
 3. Fungsi-fungsi pada API disini adalah sbb:
 > Menampilkan siswa menggunakan fungsi viewsiswa dan nis 1002 dengan metode POST.
 
-![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/master/tree/original/screenshots/JSON-POST-TampilData.png)
+![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/original/screenshots/JSON-POST-TampilData.png)
 
 > Menambahkan siswa ke DB menggunakan fungsi register dengan value nis, nama dan alamat.
 
-![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/master/tree/original/screenshots/JSON-POST-TambahData.png)
+![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/original/screenshots/JSON-POST-TambahData.png)
 
 > Menampilkan semua siswa menggunakan fungsi listsiswa.
 
-![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/master/tree/original/screenshots/JSON-POST-TampilSemua.png)
+![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/original/screenshots/JSON-POST-TampilSemua.png)
 
 ## Penutup
 Itu saja dulu, lain kali diupdate jika ada tambahan dari `teman-teman`.
