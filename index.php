@@ -27,7 +27,7 @@
     <script>
     $(document).ready(function() {
 
-        var url = 'http://localhost/services.php?fungsi=tampilsemua';
+        var url = 'http://api.arie.id/services.php?fungsi=semua';
         $('#dt').DataTable( {
             "dom": '<"col-md-2">rft<"col-md-2" i>p',
             "ajax": url,
@@ -44,7 +44,7 @@
                 "zeroRecords": "Tidak ada data",
                 "processing": "Memproses...",
                 "infoEmpty": "Tidak ada data ",
-                "info": "<strong class='font-red'>_TOTAL_</strong> Data | baris <strong class='font-red'>_START_</strong> s/d <strong class='font-red'>_END_</strong>",
+                "info": "<strong>_TOTAL_</strong> Data | baris <strong>_START_</strong> s/d <strong>_END_</strong>",
                 "infoFiltered": "| disaring dari total <strong id='red'>_MAX_</strong> baris",
                 "paginate":
                     {
@@ -54,11 +54,14 @@
             }
         });
         
+        /* Print JSON di tag HTML DIV */
         $.getJSON(url, function(data){
-            $('#output').html(
+            $('#json').html(
                 JSON.stringify(data, null, 3)
             );
         });
+
+        $('#xml').html(url);
 
     });
     </script>
@@ -79,8 +82,14 @@
     <div class="row">
         <div class="col-md-6">
             <h3>JSON:</h3>
-            <pre id="output"></pre>
+            <pre id="json"></pre>
         </div>
+        <!-- <div class="col-md-6">
+            <h3>XML:</h3>
+            <pre id="xml"></pre>
+        </div> -->
+    <!-- </div>    -->
+    <!-- <div class="row"> -->
         <div class="col-md-6">
             <h3>Datatables:</h3>
             <table id="dt" class="table table-striped table-hover table-condensed table-bordered responsive nowrap" style="width:100%">

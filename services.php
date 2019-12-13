@@ -1,47 +1,87 @@
 <?php
 include("koneksi.php");
 
-/* JSON - Uncomment untuk report dengan format XML */
-require_once("JSON/report.php");
-require_once('JSON/functions.php');
+/* OPTION */
 
-/* XML - Uncomment untuk report dengan format XML */
-// require_once("XML/report.php");
-// require_once("XML/functions.php");
+/* Method POST atau GET - Uncomment sesuai kebutuhan */
+// $method = "POST";
+$method = "GET";
 
-$nama = isset($_GET["nama"]) ? $_GET["nama"] : null;
-$alamat = isset($_GET["alamat"]) ? $_GET["alamat"] : null;
-$nim = isset($_GET["nim"]) ? $_GET["nim"] : null;
-$fungsi = isset($_GET["fungsi"]) ? $_GET["fungsi"] : null;
+/* Report JSON atau XML - Uncomment sesuai kebutuhan */
+$report = "JSON";
+// $report = "XML";
 
+/**************************************** API ***********************************************/
+
+/* HTTP Method */
+if($method == "POST") {
+
+    /* Method POST */
+    $data = trim(file_get_contents("php://input"));
+    // $cdata = preg_replace("/&#?[a-z0-9]+;/i","", json_decode($data, true), true);
+    $cdata = json_decode($data, true);
+    
+    foreach ($cdata as $key => $item) {
+        if(strtolower($key) == "fungsi") {
+            $fungsi = $item;
+        } 
+        if(strtolower($key) == "nim") {
+            $nim = $item;
+        } 
+        if(strtolower($key) == "nama") {
+            $nama = $item;
+        } 
+        if(strtolower($key) == "alamat") {
+            $alamat = $item;
+        } 
+    }
+
+} else { 
+
+    /* Method  GET */
+    $nama = isset($_GET["nama"]) ? $_GET["nama"] : null;
+    $alamat = isset($_GET["alamat"]) ? $_GET["alamat"] : null;
+    $nim = isset($_GET["nim"]) ? $_GET["nim"] : null;
+    $fungsi = isset($_GET["fungsi"]) ? $_GET["fungsi"] : null;
+}
+
+/* View Reports */
+if($report == "JSON"){
+    require_once("JSON/report.php");   
+    require_once('JSON/functions.php');
+} else {
+    require_once("XML/report.php");    
+    require_once("XML/functions.php");
+}
 
 /* Log Script */
 include("log.php");
 
 if(strtolower($fungsi) == "tambah")
 {
-    tambahMahasiswa($nim, $nama, $alamat);
+    tambahMahasiswa($method, $nim, $nama, $alamat);
 } elseif (strtolower($fungsi) == 'tampil') {
-    tampilMahasiswa($nim);
-} elseif (strtolower($fungsi) == 'tampilsemua') {
-    semuaMahasiswa(); /* Tambah function menampilkan semua mahasiswa */
+    tampilMahasiswa($method, $nim);
+} elseif (strtolower($fungsi) == 'hapus') {
+    hapusMahasiswa($method, $nim); /* Tambah function menghapus mahasiswa by nim */
+} elseif (strtolower($fungsi) == 'semua') {
+    semuaMahasiswa($method); /* Tambah function menampilkan semua mahasiswa */
 } else {
-    noAkses();
+    noAkses($method);
 }
 
-function noAkses() {
+function noAkses($report) {
     $function = new functions();
-    $report = new report();
+    $result = new result();
     $iderror = "010";
-    $keterangan = "Fungsi FAILED";
+    $keterangan = "Fungsi Gagal atau Fungsi Tidak Ditemukan";
     $noref = $function->getNoRef();
-    $repxml = $report->noAkses($noref, $iderror, $keterangan);
-    echo $repxml;
+    echo $result->noAkses($noref, $iderror, $keterangan);
 }
 
-function tambahMahasiswa($nim, $nama, $alamat) {
+function tambahMahasiswa($report, $nim, $nama, $alamat) {
     $function = new functions();
-    $report = new report();
+    $result = new result();
     $ceksiswa = $function->cek_mahasiswa($nim);
     $noref = $function->getNoRef();
     if($ceksiswa == 0){
@@ -50,15 +90,30 @@ function tambahMahasiswa($nim, $nama, $alamat) {
         $keterangan = "Sukses";
     } else {
         $iderror = "001";
-        $keterangan = "Failed, Data Sudah Ada";
+        $keterangan = "Gagal, Data Sudah Ada";
     }
-    $repxml = $report->tambahMahasiswa($nim, $noref, $iderror, $keterangan);
-    echo $repxml;
+    echo $result->tambahMahasiswa($nim, $noref, $iderror, $keterangan);
 }
 
-function tampilMahasiswa($nim) {
+function hapusMahasiswa($report, $nim) {
     $function = new functions();
-    $report = new report();
+    $result = new result();
+    $ceksiswa = $function->cek_mahasiswa($nim);
+    $noref = $function->getNoRef();
+    if($ceksiswa == 1){
+        $function->hapus_mahasiswa($nim);
+        $iderror = "000";
+        $keterangan = "Sukses, Data berhasil di Hapus";
+    } else {
+        $iderror = "001";
+        $keterangan = "Gagal, Data Tidak Ditemukan";
+    }
+    echo $result->hapusMahasiswa($iderror, $noref, $keterangan);
+}
+
+function tampilMahasiswa($report, $nim) {
+    $function = new functions();
+    $result = new result();
     $ceksiswa = $function->cek_mahasiswa($nim);
     $noref = $function->getNoRef();
     if($ceksiswa == 1){
@@ -66,20 +121,17 @@ function tampilMahasiswa($nim) {
         $keterangan = "Sukses";
     } else {
         $iderror = "002";
-        $keterangan = "Failed, Data Tidak Ditemukan";
+        $keterangan = "Gagal, Data Tidak Ditemukan";
     }
-    $repxml = $report->tampilMahasiswa($nim, $noref, $iderror, $keterangan);
-    echo $repxml;
+    echo $result->tampilMahasiswa($nim, $noref, $iderror, $keterangan);
 }
 
-// function Hanya untuk JSON
-function semuaMahasiswa() {
+function semuaMahasiswa($report) {
     $function = new functions();
-    $report = new report();
+    $result = new result();
     $iderror = "000";
     $keterangan = "Sukses";
     $noref = $function->getNoRef();
-    $printrep = $report->tampilSemuaMahasiswa($iderror, $noref, $keterangan);
-    echo $printrep;
+    echo $result->tampilSemuaMahasiswa($iderror, $noref, $keterangan);
 }
 ?>

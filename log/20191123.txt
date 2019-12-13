@@ -1,2 +1,0 @@
-Time =>2019/11/23 21:07:32, IP Address => 127.0.0.1, URL Hit => http://localhost/services.php?fungsi=tampilsemua
-Time =>2019/11/23 21:07:32, IP Address => 127.0.0.1, URL Hit => http://localhost/services.php?fungsi=tampilsemua&_=1574518051826

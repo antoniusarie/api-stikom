@@ -2,7 +2,7 @@
 require_once("functions.php");
 require_once("xml.php");
 
-class report {
+class result {
 
     function noAkses($noref, $iderror, $keterangan)
     {
@@ -16,6 +16,14 @@ class report {
     {
         $XML = new XML();
         $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
+
+        return $report;
+    }
+    
+    function hapusMahasiswa($iderror, $noref, $keterangan)
+    {
+        $XML = new XML();
+        $report = $XML->hapus_mahasiswa($iderror, $noref, $keterangan);
 
         return $report;
     }

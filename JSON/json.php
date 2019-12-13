@@ -50,14 +50,28 @@ class JSON {
         $output = json_encode($infoData);
         return $output;
     }
+
+    public function hapus_mahasiswa($iderror, $noref, $keterangan) {
+        
+        $infoData = array(
+            'kodeid' => $iderror,
+            'nomorref' => $noref,
+            'keterangan' => $keterangan,
+        );
+
+        header('Content-Type: application/json');
+        $output = json_encode($infoData);
+        return $output;
+    }
     
     public function noakses($iderror, $noref, $keterangan) {
         
-        $items = array($noref, $iderror, $keterangan);
         $infoData = array(
+            'kodeid' => $iderror,
+            'nomorref' => $noref,
             'keterangan' => $keterangan,
-            'data' => $items
         );
+        
         header('Content-Type: application/json');
         $output = json_encode($infoData);
         return $output;

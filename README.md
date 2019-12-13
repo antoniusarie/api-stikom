@@ -3,7 +3,7 @@ API dengan PHP Native
 
 ## Informasi
 Bagian dari Dasar Pemrograman Web / `Web Base Programming`.
-Membuat `API` dengan `PHP Native` dengan output `XML` maupun `JSON`.
+Membuat `API` dengan `PHP Native` dengan method `POST` maupun `GET` dan output format `JSON` maupun `XML`.
 
 ## Tools
 | NAMA | VERSI |
@@ -23,35 +23,87 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 1. `Clone` Git atau `Extract` file zip.
 2. Query sample database `mahasiswa.sql` ke DMBS. 
 3. Sesuaikan `username`, `password` dan `nama db` pada file `koneksi.php`.
-3. Gunakan `Postman` untuk menampilkan hasil `API`.
+4. Gunakan `Postman` untuk menampilkan hasil `API`.
 
-## Update (23/11/2019)
-1. Untuk memilih output `XML` atau `JSON`, pada file `services.php` adalah sbb:
-> XML - Uncomment untuk report dengan format XML
+## Update (14/12/2019)
+1. Tambah fungsi `hapus` untuk menghapus `mahasiswa` berdasarkan `nim`.
+2. Ubah nama fungsi `tampilsemua` menjadi `semua`
+3. Untuk memilih Method `POST` atau `GET` maupun Report dengan format `JSON` atau `XML` pada file `services.php` adalah sbb:
+> Method POST - Uncomment untuk method POST
 ```
-require_once("XML/report.php");
-require_once("XML/functions.php");
+$method = "POST";
+```
+> Method GET - Uncomment untuk method GET
+```
+$method = "GET";
+```
+> Report JSON - Uncomment untuk report dengan format JSON
+```
+$report = "JSON";
+```
+> Report XML - Uncomment untuk report dengan format XML
+```
+$report = "XML";
 ```
 
-> JSON - Uncomment untuk report dengan format JSON
-```
-require_once("JSON/report.php");
-require_once('JSON/functions.php');
-```
-2. Fungsi-fungsi pada API disini adalah sbb:
-> Menampilkan mahasiswa menggunakan fungsi tampil dan nis 7003.
+4. Fungsi-fungsi pada API disini dengan method GET adalah sbb:
+> Menampilkan mahasiswa menggunakan fungsi `tampil` by nim.
 ```
 http://localhost/services.php?fungsi=tampil&nim=7003
 ```
-> Menambahkan mahasiswa ke DB menggunakan fungsi tambah dengan value nim, nama dan alamat.
+> Menambahkan mahasiswa ke DB menggunakan fungsi `tambah` dengan value nim, nama dan alamat.
 ```
 http://localhost/services.php?fungsi=tambah&nim=[nomor-induk-siswa]&nama=[nama]&alamat=[alamat]
 ```
-> Menampilkan semua mahasiswa menggunakan fungsi tampilsemua.
+> Menghapus mahasiswa menggunakan fungsi `hapus` by nim.
+```
+http://localhost/services.php?fungsi=hapus&nim=7003
+```
+> Menampilkan semua mahasiswa menggunakan fungsi `semua`.
 ```
 http://localhost/services.php?fungsi=tampilsemua
 ```
-3. Preview Page `index.php` menampilkan output API (JSON) ke Datatable.
+
+5. Fungsi-fungsi pada API disini dengan method POST adalah sbb:
+> Menampilkan mahasiswa menggunakan fungsi `tampil` by nim.
+```
+URL : http://localhost/services.php
+Body, Raw, JSON
+{
+    "fungsi" : "tampil",
+    "nim" : "nomor induk mahasiswa"
+}
+```
+> Menambahkan mahasiswa ke DB menggunakan fungsi `tambah` dengan value nim, nama dan alamat.
+```
+URL : http://localhost/services.php
+Body, Raw, JSON
+{
+    "fungsi" : "tambah",
+    "nim" : "nomor induk mahasiswa",
+    "nama" : "nama mahasiswa",
+    "alamat" : "alamat mahasiswa",
+}
+```
+> Manghapus mahasiswa menggunakan fungsi `hapus` by nim.
+```
+URL : http://localhost/services.php
+Body, Raw, JSON
+{
+    "fungsi" : "hapus",
+    "nim" : "nomor induk mahasiswa"
+}
+```
+> Menampilkan semua mahasiswa menggunakan `fungsi` semua.
+```
+URL : http://localhost/services.php
+Body, Raw, JSON
+{
+    "fungsi" : "semua"
+}
+```
+
+6. Preview Page `index.php` menampilkan output API (JSON) ke Datatable.
 
 ![Preview Index Page - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-DatatablesView.png)
 

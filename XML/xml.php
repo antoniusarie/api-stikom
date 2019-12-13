@@ -77,11 +77,30 @@ class XML {
         return $output;
     }
 
+    public function hapus_mahasiswa($iderror, $noref, $keterangan) {
+        $infoData = array(
+            "kode" => !empty($iderror) ? $iderror : 'null',
+            "nomorref" => !empty($noref) ? $noref : 'null',
+            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
+        );        
+        
+        // Print XML
+        $xml = new DOMDOcument();
+        $parent = $xml->appendChild($xml->createElement("data"));
+        foreach ($infoData as $key => $value) {
+            $parent->appendChild($xml->createElement($key, $value));
+        }
+        header("Content-Type:application/xml");
+        $output = $xml->saveXML();
+
+        return $output;
+    }
+
     public function noakses($iderror, $noref, $keterangan) {
         $infoData = array(
             "kode" => !empty($iderror) ? $iderror : 'null',
-            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
             "nomorref" => !empty($noref) ? $noref : 'null',
+            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
         );        
         
         // Print XML

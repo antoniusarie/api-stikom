@@ -28,6 +28,13 @@ class functions {
         mysqli_query($conn, $sql);
     }
 
+    function hapus_mahasiswa($nim)
+    {
+        global $conn; // mencari variabel secara global diluar scope function
+        $sql = "DELETE FROM mahasiswa WHERE nim = '$nim' ";
+        mysqli_query($conn, $sql);
+    }
+
     function get_data_mahasiswa($nim)
     {
         global $conn; // mencari variabel secara global diluar scope function
