@@ -61,7 +61,7 @@ http://localhost/services.php?fungsi=hapus&nim=7003
 ```
 > Menampilkan semua mahasiswa menggunakan fungsi `semua`.
 ```
-http://localhost/services.php?fungsi=tampilsemua
+http://localhost/services.php?fungsi=semua
 ```
 
 5. Fungsi-fungsi pada API disini dengan method POST adalah sbb:
