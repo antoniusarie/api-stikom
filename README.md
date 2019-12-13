@@ -82,7 +82,7 @@ Body, Raw, JSON
     "fungsi" : "tambah",
     "nim" : "nomor induk mahasiswa",
     "nama" : "nama mahasiswa",
-    "alamat" : "alamat mahasiswa",
+    "alamat" : "alamat mahasiswa"
 }
 ```
 > Manghapus mahasiswa menggunakan fungsi `hapus` by nim.
