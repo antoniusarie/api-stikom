@@ -23,31 +23,11 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 1. `Clone` Git atau `Extract` file zip.
 2. Query sample database `siswa.sql` ke DMBS. 
 3. Sesuaikan `username`, `password` dan `nama db` pada file `koneksi.php`.
-3. Gunakan `Postman` untuk menampilkan hasil `API`.
+4. Gunakan `Postman` untuk menampilkan hasil `API`.
 
 ## Update (08/12/2019)
-1. Untuk memilih report `XML` atau `JSON` pada file `services.php` adalah sbb:
-> Uncomment untuk report dengan format XML
-```
-$option = "XML"
-```
-
-> Uncomment untuk report dengan format JSON
-```
-$option = "JSON"
-```
-2. Untuk memilih method `POST` atau `GET`, pada file `services.php` adalah sbb:
-> Uncomment untuk method POST
-```
-$method = "POST"
-```
-
-> Uncomment untuk method GET
-```
-$method = "GET"
-```
-
-3. Fungsi-fungsi pada API disini adalah sbb:
+1. Opsi untuk `POST` atau `GET` dan `JSON` atau `XML` ada di `services.php`, tinggal comment/uncomment.
+2. Fungsi-fungsi pada API disini adalah sbb:
 > Menampilkan siswa menggunakan fungsi viewsiswa dan nis 1002 dengan metode POST.
 
 ![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/original/screenshots/JSON-POST-TampilData.png)
@@ -61,4 +41,4 @@ $method = "GET"
 ![Fungsi Tampil - JSON](https://github.com/antoniusarie/api-stikom/blob/original/screenshots/JSON-POST-TampilSemua.png)
 
 ## Penutup
-Itu saja dulu, lain kali diupdate jika ada tambahan dari `teman-teman`.
+The End.
