@@ -28,24 +28,7 @@ Catatan: `Laragon` sudah mencakup Nginx, PHP, MySQL.
 ## Update (14/12/2019)
 1. Tambah fungsi `hapus` untuk menghapus `mahasiswa` berdasarkan `nim`.
 2. Ubah nama fungsi `tampilsemua` menjadi `semua`
-3. Untuk memilih Method `POST` atau `GET` maupun Report dengan format `JSON` atau `XML` pada file `services.php` adalah sbb:
-> Method POST - Uncomment untuk method POST
-```
-$method = "POST";
-```
-> Method GET - Uncomment untuk method GET
-```
-$method = "GET";
-```
-> Report JSON - Uncomment untuk report dengan format JSON
-```
-$report = "JSON";
-```
-> Report XML - Uncomment untuk report dengan format XML
-```
-$report = "XML";
-```
-
+3. Opsi untuk `POST` atau `GET` dan `JSON` atau `XML` ada di `services.php`, tinggal comment/uncomment.
 4. Fungsi-fungsi pada API disini dengan method GET adalah sbb:
 > Menampilkan mahasiswa menggunakan fungsi `tampil` by nim.
 ```
@@ -133,4 +116,4 @@ Body, Raw, JSON
 ![Fungsi Tampil Semua - JSON](https://github.com/antoniusarie/api-stikom/blob/master/screenshots/JSON-TampilSemua.png)
 
 ## Penutup
-Itu saja dulu, lain kali diupdate jika ada tambahan dari `teman-teman`.
+The End.
