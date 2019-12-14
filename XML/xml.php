@@ -17,9 +17,7 @@ class XML {
             $parent->appendChild($xml->createElement($key, $value));
         }
         header("Content-Type:application/xml");
-        $output = $xml->saveXML();
-
-        return $output;
+        return $xml->saveXML();
     }
 
     public function reports($noref, $iderror, $keterangan) {
@@ -53,10 +51,7 @@ class XML {
         }
         // $xml->formatOutput = true;
         header("Content-Type:application/xml");
-        $output = $xml->saveXML();
-        
-        return $output;
+        return $xml->saveXML();
     }
-
 }
 ?>

@@ -12,15 +12,14 @@ class JSON {
         );
         
         header('Content-Type: application/json');
-        $output = json_encode($infoData);
-        return $output;
+        return json_encode($infoData);
     }
 
     public function reports($noref, $iderror, $keterangan) {
 
         $function = new functions();
 
-        if($iderror == '000') {
+        if($iderror == '200') {
             $data = $function->get_data();
             $infoData = array(
                 'keterangan' => $keterangan,
@@ -36,8 +35,7 @@ class JSON {
             );
         }
         header('Content-Type: application/json');
-        $output = json_encode($infoData);
-        return $output;
+        return json_encode($infoData);
     }
 }
 ?>

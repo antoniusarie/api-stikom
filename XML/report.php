@@ -7,25 +7,19 @@ class result {
     function noAkses($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->noakses($iderror, $noref, $keterangan);
-
-        return $report;
+        return $XML->noakses($iderror, $noref, $keterangan);
     }
 
     function addtrx($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->reports($noref, $iderror, $keterangan);
-
-        return $report;
+        return $XML->reports($noref, $iderror, $keterangan);
     }
     
     function mintrx($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->reports($noref, $iderror, $keterangan);
-
-        return $report;
+        return $XML->reports($noref, $iderror, $keterangan);
     }    
 }
 ?>

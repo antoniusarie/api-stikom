@@ -7,25 +7,19 @@ class result {
     function noAkses($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->noakses($noref, $iderror, $keterangan);
-
-        return $report;
+        return $JSON->noakses($noref, $iderror, $keterangan);
     }
 
     function addtrx($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->reports($noref, $iderror, $keterangan);
-
-        return $report;
+        return $JSON->reports($noref, $iderror, $keterangan);
     }
     
     function mintrx($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->reports($noref, $iderror, $keterangan);
-
-        return $report;
+        return $JSON->reports($noref, $iderror, $keterangan);
     }
 }
 ?>
