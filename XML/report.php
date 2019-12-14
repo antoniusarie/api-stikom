@@ -12,37 +12,20 @@ class result {
         return $report;
     }
 
-    function tambahMahasiswa($nim, $noref, $iderror, $keterangan)
+    function addtrx($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
+        $report = $XML->reports($noref, $iderror, $keterangan);
 
         return $report;
     }
     
-    function hapusMahasiswa($iderror, $noref, $keterangan)
+    function mintrx($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->hapus_mahasiswa($iderror, $noref, $keterangan);
+        $report = $XML->reports($noref, $iderror, $keterangan);
 
         return $report;
-    }
-
-    function tampilMahasiswa($nim, $noref, $iderror, $keterangan)
-    {
-        $XML = new XML();
-        $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
-
-        return $report;
-    }
-    
-    function tampilSemuaMahasiswa($noref, $iderror, $keterangan)
-    {
-        $XML = new XML();
-        $report = $XML->semua_mahasiswa($noref, $iderror, $keterangan);
-
-        return $report;
-    }
-    
+    }    
 }
 ?>

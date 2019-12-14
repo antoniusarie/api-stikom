@@ -10,64 +10,50 @@ class functions {
         return $noRef;
     }
   
-    function cek_mahasiswa($nim)
-    {
+    function get_saldo()
+    {   
+        $saldo = 0;
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT COUNT(*) jumlah FROM mahasiswa WHERE nim = '$nim'";
+        $sql = "SELECT sisa FROM akutansi ORDER BY nid DESC LIMIT 1";
         $query = mysqli_query($conn, $sql);
         while ($data = mysqli_fetch_array($query)) {
-            $rowdata = $data["jumlah"];
+            $saldo = $data["sisa"];
         }
-        return $rowdata;
+        return $saldo;
     }
 
-    function tambah_mahasiswa($nim, $nama, $alamat)
+    function get_data()
     {
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "INSERT INTO mahasiswa(nim, nama, alamat) VALUES('$nim', '$nama', '$alamat')";
-        mysqli_query($conn, $sql);
-    }
-    
-    function hapus_mahasiswa($nim)
-    {
-        global $conn; // mencari variabel secara global diluar scope function
-        $sql = "DELETE FROM mahasiswa WHERE nim = '$nim' ";
-        mysqli_query($conn, $sql);
-    }
-    
-
-    function get_data_mahasiswa($nim)
-    {
-        global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT nim, nama, alamat FROM mahasiswa WHERE nim = '$nim'";
+        $sql = "SELECT * FROM akutansi ORDER BY nid DESC LIMIT 1";
         $query = mysqli_query($conn, $sql);
         while ($data = mysqli_fetch_array($query)) {
 
         // While JSON
             $item[] = array(
-                'nim' => $data["nim"],
-                'nama' => $data["nama"],
-                'alamat' => $data["alamat"],
+                'nid' => $data["nid"],
+                'keterangan' => $data["keterangan"],
+                'tambah' => $data["tambah"],
+                'kurang' => $data["kurang"],
+                'sisa' => $data["sisa"],
             );
+            return $item;    
         }
-        return $item;
     }
-        
-    function get_semua_mahasiswa()
+    
+    function addtrx($nominal, $deskripsi, $sisa)
     {
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT nim, nama, alamat FROM mahasiswa";
-        $query = mysqli_query($conn, $sql);
-        while($data = mysqli_fetch_array($query)) {
-            
-        // While JSON
-            $item[] = array(
-                'nim' => $data["nim"],
-                'nama' => $data["nama"],
-                'alamat' => $data["alamat"],
-            );
-        }
-        return $item;
+        $sql = "INSERT INTO akutansi(tambah, keterangan, kurang, sisa) VALUES('$nominal', '$deskripsi', 0, '$sisa')";
+        mysqli_query($conn, $sql);
     }
+
+    function mintrx($nominal, $deskripsi, $sisa)
+    {
+        global $conn; // mencari variabel secara global diluar scope function
+        $sql = "INSERT INTO akutansi(kurang, keterangan, tambah, sisa) VALUES('$nominal', '$deskripsi', 0, '$sisa')";
+        mysqli_query($conn, $sql);
+    }
+
 }
 ?>

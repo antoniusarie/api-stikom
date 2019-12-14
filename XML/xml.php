@@ -3,13 +3,30 @@ require_once("functions.php");
 
 class XML {
 
-    public function semua_mahasiswa($iderror, $noref, $keterangan) {
+    public function noakses($iderror, $noref, $keterangan) {
+        $infoData = array(
+            "kode" => !empty($iderror) ? $iderror : 'null',
+            "nomorref" => !empty($noref) ? $noref : 'null',
+            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
+        );        
+        
+        // Print XML
+        $xml = new DOMDOcument();
+        $parent = $xml->appendChild($xml->createElement("data"));
+        foreach ($infoData as $key => $value) {
+            $parent->appendChild($xml->createElement($key, $value));
+        }
+        header("Content-Type:application/xml");
+        $output = $xml->saveXML();
 
-    $function = new functions();
+        return $output;
+    }
 
-        $iderror == "000";
-        $data = $function->get_semua_mahasiswa();
+    public function reports($noref, $iderror, $keterangan) {
 
+        $function = new functions();
+
+        $data = $function->get_data();
         $infoData = array(
             'keterangan' => $keterangan,
             'kodeid' => $iderror,
@@ -38,80 +55,6 @@ class XML {
         header("Content-Type:application/xml");
         $output = $xml->saveXML();
         
-        return $output;
-    }
-
-    public function mahasiswa($nim, $iderror, $noref, $keterangan) {
-
-    $function = new functions();
-
-    if($iderror == "000") {
-        $data = $function->get_data_mahasiswa($nim);
-        $arr = explode("|", $data);
-
-        $infoData = array(
-            "kode" => !empty($iderror) ? $iderror : 'null',
-            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
-            "nomorref" => !empty($noref) ? $noref : 'null',
-            "nim" => !empty($nim) ? $nim : 'null',
-            "nama" => !empty($arr[0]) ? $arr[0] : 'null',
-            "alamat" => !empty($arr[1]) ? $arr[1] : 'null'
-            );
-        } else {
-        $infoData = array(
-            "kode" => !empty($iderror) ? $iderror : 'null',
-            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
-            "nomorref" => !empty($noref) ? $noref : 'null',
-            );
-        }
-
-        // Print XML
-        $xml = new DOMDOcument();
-        $parent = $xml->appendChild($xml->createElement("data"));
-        foreach ($infoData as $key => $value) {
-            $parent->appendChild($xml->createElement($key, $value));
-        }
-        header("Content-Type:application/xml");
-        $output = $xml->saveXML();
-
-        return $output;
-    }
-
-    public function hapus_mahasiswa($iderror, $noref, $keterangan) {
-        $infoData = array(
-            "kode" => !empty($iderror) ? $iderror : 'null',
-            "nomorref" => !empty($noref) ? $noref : 'null',
-            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
-        );        
-        
-        // Print XML
-        $xml = new DOMDOcument();
-        $parent = $xml->appendChild($xml->createElement("data"));
-        foreach ($infoData as $key => $value) {
-            $parent->appendChild($xml->createElement($key, $value));
-        }
-        header("Content-Type:application/xml");
-        $output = $xml->saveXML();
-
-        return $output;
-    }
-
-    public function noakses($iderror, $noref, $keterangan) {
-        $infoData = array(
-            "kode" => !empty($iderror) ? $iderror : 'null',
-            "nomorref" => !empty($noref) ? $noref : 'null',
-            "keterangan" => !empty($keterangan) ? $keterangan : 'null',
-        );        
-        
-        // Print XML
-        $xml = new DOMDOcument();
-        $parent = $xml->appendChild($xml->createElement("data"));
-        foreach ($infoData as $key => $value) {
-            $parent->appendChild($xml->createElement($key, $value));
-        }
-        header("Content-Type:application/xml");
-        $output = $xml->saveXML();
-
         return $output;
     }
 
