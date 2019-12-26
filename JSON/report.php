@@ -7,42 +7,30 @@ class result {
     function noAkses($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->noakses($iderror, $noref, $keterangan);
+        return $JSON->noakses($noref, $iderror, $keterangan);
+    }
 
-        return $report;
+    function addtrx($noref, $iderror, $keterangan)
+    {
+        $JSON = new JSON();
+        return $JSON->reports($noref, $iderror, $keterangan);
     }
     
-    function tambahMahasiswa($nim, $noref, $iderror, $keterangan)
+    function mintrx($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->mahasiswa($nim, $iderror, $noref, $keterangan);
-
-        return $report;
+        return $JSON->reports($noref, $iderror, $keterangan);
     }
     
-    function hapusMahasiswa($iderror, $noref, $keterangan)
+    function alltrx($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->hapus_mahasiswa($iderror, $noref, $keterangan);
-
-        return $report;
+        return $JSON->reports_all($noref, $iderror, $keterangan);
     }
-
-    function tampilMahasiswa($nim, $noref, $iderror, $keterangan)
+    function sumtrx($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        $report = $JSON->mahasiswa($nim, $iderror, $noref, $keterangan);
-
-        return $report;
+        return $JSON->reports_sum_trx($noref, $iderror, $keterangan);
     }
-        
-    function tampilSemuaMahasiswa($iderror, $noref, $keterangan)
-    {
-        $JSON = new JSON();
-        $report = $JSON->semua_mahasiswa($iderror, $noref, $keterangan);
-
-        return $report;
-    }
-
 }
 ?>

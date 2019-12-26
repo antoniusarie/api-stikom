@@ -1,0 +1,1 @@
+Time =>2019/12/15 02:50:10, IP Address => 127.0.0.1, URL Hit => http://api.arie.id/services.php?fungsi=adtrx&nominal=75000&deskripsi=Gaji%20Boss

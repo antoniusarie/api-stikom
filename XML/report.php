@@ -7,42 +7,25 @@ class result {
     function noAkses($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->noakses($iderror, $noref, $keterangan);
-
-        return $report;
+        return $XML->noakses($iderror, $noref, $keterangan);
     }
 
-    function tambahMahasiswa($nim, $noref, $iderror, $keterangan)
+    function addtrx($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
-
-        return $report;
+        return $XML->reports($noref, $iderror, $keterangan);
     }
     
-    function hapusMahasiswa($iderror, $noref, $keterangan)
+    function mintrx($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->hapus_mahasiswa($iderror, $noref, $keterangan);
+        return $XML->reports($noref, $iderror, $keterangan);
+    }    
 
-        return $report;
-    }
-
-    function tampilMahasiswa($nim, $noref, $iderror, $keterangan)
+    function viewall($noref, $iderror, $keterangan)
     {
         $XML = new XML();
-        $report = $XML->mahasiswa($nim, $iderror, $noref, $keterangan);
-
-        return $report;
+        return $XML->reports_all($noref, $iderror, $keterangan);
     }
-    
-    function tampilSemuaMahasiswa($noref, $iderror, $keterangan)
-    {
-        $XML = new XML();
-        $report = $XML->semua_mahasiswa($noref, $iderror, $keterangan);
-
-        return $report;
-    }
-    
 }
 ?>
