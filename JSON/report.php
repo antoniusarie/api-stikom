@@ -25,7 +25,7 @@ class result {
     function alltrx($noref, $iderror, $keterangan)
     {
         $JSON = new JSON();
-        return $JSON->reports_all($noref, $iderror, $keterangan);
+        return $JSON->reports_all_trx($noref, $iderror, $keterangan);
     }
     function sumtrx($noref, $iderror, $keterangan)
     {

@@ -12,9 +12,9 @@ class functions {
   
     function get_saldo()
     {   
-        $saldo = 0;
+        $saldo = '';
         global $conn; // mencari variabel secara global diluar scope function
-        $sql = "SELECT sisa FROM akutansi ORDER BY nid DESC LIMIT 1";
+        $sql = "SELECT sisa FROM akutansi ORDER BY nid DESC LIMIT 1"; // result -> 1 row urutan terakhir by nid  
         $query = mysqli_query($conn, $sql);
         while ($data = mysqli_fetch_array($query)) {
             $saldo = $data["sisa"];
@@ -28,15 +28,12 @@ class functions {
         $sql = "SELECT SUM(kurang) as debet, SUM(tambah) as kredit FROM akutansi";
         $query = mysqli_query($conn, $sql);
         while ($data = mysqli_fetch_array($query)) {
-            $item[] = array(
-                // $total_debet = $data["debet"];
-                // $total_kredit = $data["kredit"];
+            $sumtrx[] = array(
                 'TOTAL DEBET' => $data['debet'],
                 'TOTAL KREDIT' => $data['kredit'],
             );
         }
-        // return $total_debet .'|'. $total_kredit; 
-        return $item;
+        return $sumtrx;
     }
 
     function get_data()
@@ -47,14 +44,14 @@ class functions {
         while ($data = mysqli_fetch_array($query)) {
 
         // While JSON
-            $item[] = array(
+            $results[] = array(
                 'nid' => $data["nid"],
                 'keterangan' => $data["keterangan"],
                 'tambah' => $data["tambah"],
                 'kurang' => $data["kurang"],
                 'sisa' => $data["sisa"],
             );
-            return $item; // didalam bracket while -> result query hanya 1 row
+            return $results; // didalam bracket while -> result query hanya 1 row
         }
     }
 
@@ -66,7 +63,7 @@ class functions {
         while ($data = mysqli_fetch_array($query)) {
 
         // While JSON
-            $item[] = array(
+            $results[] = array(
                 'NO' => $data["nid"],
                 'DESKRIPSI' => $data["keterangan"],
                 'KREDIT' => $data["tambah"],
@@ -74,7 +71,7 @@ class functions {
                 'SALDO' => $data["sisa"]
             );
         }
-        return $item; // diluar bracket while -> result query semua row (looping array $data)
+        return $results; // diluar bracket while -> result query $data semua row (looping array $results)
     }
     
     function addtrx($nominal, $deskripsi, $sisa)

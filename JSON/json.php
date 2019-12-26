@@ -38,7 +38,7 @@ class JSON {
         return json_encode($infoData);
     }
 
-    public function reports_all($noref, $iderror, $keterangan) {
+    public function reports_all_trx($noref, $iderror, $keterangan) {
 
         $function = new functions();
 
